@@ -11,3 +11,4 @@
 void gotoxy(int x, int y);
 void setcolor(int color, int bgcolor);
 void fullscreen();
+void hideCursor();
