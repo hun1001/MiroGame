@@ -82,21 +82,22 @@ void MiroInitAlgorithm::Board::RenderBoard()
 	{
 		for (int x = 0; x < _size; x++)
 		{
-			if (_tile[y][x] == Wall)
+			switch (_tile[y][x])
 			{
-				std::cout << "¡Ü";
-			}
-			else if (_tile[y][x] == Empty)
-			{
-				std::cout << "¡Û";
-			}
-			else if (_tile[y][x] == Player)
-			{
+			case Wall:
+				std::cout << "¡á";
+				break;
+			case Empty:
+				std::cout << "¡à";
+				break;
+			case Player:
 				std::cout << "¡Ú";
-			}
-			else if (_tile[y][x] == Goal)
-			{
+				break;
+			case Goal:
 				std::cout << "¢Â";
+				break;
+			default:
+				break;
 			}
 		}
 		std::cout << std::endl;
@@ -106,41 +107,50 @@ void MiroInitAlgorithm::Board::RenderBoard()
 void MiroInitAlgorithm::Board::PlayerMoveInput(char input)
 {
 	int nextPos;
+	bool isGameEnd = false;
 	switch (input)
 	{
 	case 'a':
 	case 'A':
 		nextPos = playerPosX - 1;
-		PlayerMove(nextPos, playerPosY);
+		isGameEnd = PlayerMove(nextPos, playerPosY);
 		break;
 	case 'd':
 	case 'D':
 		nextPos = playerPosX + 1;
-		PlayerMove(nextPos, playerPosY);
+		isGameEnd = PlayerMove(nextPos, playerPosY);
 		break;
 	case 's':
 	case 'S':
 		nextPos = playerPosY + 1;
-		PlayerMove(playerPosX, nextPos);
+		isGameEnd = PlayerMove(playerPosX, nextPos);
 		break;;
 	case 'w':
 	case 'W':
 		nextPos = playerPosY - 1;
-		PlayerMove(playerPosX, nextPos);
+		isGameEnd = PlayerMove(playerPosX, nextPos);
 		break;
 	default:
 		break;
 	}
+	_isGoal = isGameEnd;
 }
 
-void MiroInitAlgorithm::Board::PlayerMove(int x, int y)
+bool MiroInitAlgorithm::Board::PlayerMove(int x, int y)
 {
 	if (_tile[y][x] == Wall)
 	{
-		return;
+		return false;
+	}
+	
+	if (_tile[y][x] == Goal)
+	{
+		std::cout << "You Win!" << std::endl;
+		return true;
 	}
 
 	std::swap(_tile[playerPosY][playerPosX], _tile[y][x]);
 	playerPosX = x;
 	playerPosY = y;
+	return false;
 }

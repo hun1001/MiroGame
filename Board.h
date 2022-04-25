@@ -18,6 +18,7 @@ namespace MiroInitAlgorithm
 		char** _tile;
 		int _size;
 		int playerPosX, playerPosY;
+		bool _isGoal = false;
 
 		void Initialize(int size);
 
@@ -27,6 +28,6 @@ namespace MiroInitAlgorithm
 
 		void PlayerMoveInput(char input);
 
-		void PlayerMove(int x, int y);
+		bool PlayerMove(int x, int y);
 	};
 }
