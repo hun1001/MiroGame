@@ -11,14 +11,13 @@ int main()
 	board.Initialize(25);
 	board.GenerateByBinaryTree();
 
-	int playerPosX(1), playerPosY(1);
-
 	while (true)
 	{
-		system("cls");
+		// system("cls");
+		gotoxy(0, 0);
 		board.RenderBoard();
 		char input = _getch();
-		
+		board.PlayerMoveInput(input);
 	}
 	
 	return 0;
