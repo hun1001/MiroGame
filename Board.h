@@ -29,5 +29,7 @@ namespace MiroInitAlgorithm
 		void PlayerMoveInput(char input);
 
 		bool PlayerMove(int x, int y);
+
+		bool InputIdentify(char input);
 	};
 }
