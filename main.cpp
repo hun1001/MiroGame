@@ -7,10 +7,12 @@ int main()
 	using namespace std;
 	using namespace MiroInitAlgorithm;
 	
+	int mapSize(31);
+	
 	hideCursor();
 	
 	Board board;
-	board.Initialize(25);
+	board.Initialize(mapSize);
 	board.GenerateByBinaryTree();
 	
 	while (!board._isGoal)

@@ -4,7 +4,15 @@ void MiroInitAlgorithm::Board::Initialize(int size)
 {
 	if (size % 2 == 0)
 	{
-		return;
+		size++;
+	}
+	if (size < 3)
+	{
+		size = 3;
+	}
+	if (size > 29)
+	{
+		size = 29;
 	}
 
 	_tile = new char* [size];
