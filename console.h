@@ -7,6 +7,9 @@
 #include <fcntl.h>
 #include <mmsystem.h>
 #include <random>
+#include <thread>
+
+#define ESC 27
 
 void gotoxy(int x, int y);
 void setcolor(int color, int bgcolor);

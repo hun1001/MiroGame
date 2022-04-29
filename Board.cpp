@@ -162,3 +162,17 @@ bool MiroInitAlgorithm::Board::PlayerMove(int x, int y)
 	playerPosY = y;
 	return false;
 }
+
+bool MiroInitAlgorithm::Board::InputIdentify(char input)
+{
+	switch (input)
+	{
+	case 27:
+		// 게임 종료 처리
+		exit(0);
+		return false;
+	default:
+		break;
+	}
+	return true;
+}
