@@ -7,5 +7,6 @@ private:
 	POINT _playerCurPos;
 public:
 	Player(long x, long y);
+	void Move(int x, int y);
 };
 
