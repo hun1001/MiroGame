@@ -1,6 +1,7 @@
 #pragma once
 #include "Maze.h"
 #include "Player.h"
+#include "TileState.h"
 
 class Board
 {
@@ -16,6 +17,6 @@ public:
 	void InputCommend(char input);
 
 	void MovePlayer(Direction dir);
-	bool CheckCanMove(int x, int y);
+	TileState CheckNextBlock(int x, int y);
 };
 

@@ -6,8 +6,9 @@ int main()
 	Board board(25);
 	char buffer;
 	
+	fullscreen();
 	hideCursor();
-	
+
 	while (true)
 	{
 		gotoxy(0, 0);

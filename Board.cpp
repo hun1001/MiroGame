@@ -77,21 +77,26 @@ void Board::InputCommend(char input)
 void Board::MovePlayer(Direction dir)
 {
 	_player->Move(dir);
-	if(!CheckCanMove(_player->GetPos().x, _player->GetPos().y))
+	if(CheckNextBlock(_player->GetPos().x, _player->GetPos().y) == TileState::CANNOTMOVE)
 	{
 		_player->Back();
 	}
 }
 
-bool Board::CheckCanMove(int x, int y)
+TileState Board::CheckNextBlock(int x, int y)
 {
-	if (_maze->GetTile()[y][x] == Empty)
+	switch (_maze->GetTile()[y][x])
 	{
-		return true;
-	}
-	else
-	{
-		return false;
+	case Empty:
+		return TileState::CANMOVE;
+		break;
+	case Wall:
+		return TileState::CANNOTMOVE;
+	case Goal:
+		return TileState::CANMOVE;
+		break;
+	default:
+		break;
 	}
 }
 
