@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="console.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="TileType.h" />
