@@ -13,7 +13,7 @@ int main()
 	
 	Board board;
 	Timer timer;
-	board.Initialize(25);
+	board.Initialize(mapSize);
 	board.GenerateByBinaryTree();
 
 	int oldMode = _setmode(_fileno(stdout), _O_U8TEXT);
