@@ -1,96 +1,17 @@
 #include "Board.h"
 
-void MiroInitAlgorithm::Board::Initialize(int size)
+
+
+void Board::RenderBoard()
 {
-	if (size % 2 == 0)
-	{
-		size++;
-	}
-	if (size < 3)
-	{
-		size = 3;
-	}
-	if (size > 29)
-	{
-		size = 29;
-	}
+	int size = GetMaze().GetSize();
+	char** tile = GetMaze().GetTile();
 
-	_tile = new char* [size];
-	for (int i = 0; i < size; i++)
+	for (int y = 0; y < size; y++)
 	{
-		_tile[i] = new char[size];
-	}
-	_size = size;
-}
-
-void MiroInitAlgorithm::Board::GenerateByBinaryTree()
-{
-	for (int y = 0; y < _size; y++)
-	{
-		for (int x = 0; x < _size; x++)
+		for (int x = 0; x < size; x++)
 		{
-			if (x % 2 == 0 || y % 2 == 0)
-			{
-				_tile[y][x] = Wall;
-			}
-			else
-			{
-				_tile[y][x] = Empty;
-			}
-		}
-	}
-	std::random_device rd;
-
-	std::mt19937 gen(rd());
-
-	std::uniform_int_distribution<int> dis(0, 1);
-	int randNum;
-	for (int y = 0; y < _size; y++)
-	{
-		for (int x = 0; x < _size; x++)
-		{
-			if (x % 2 == 0 || y % 2 == 0)
-			{
-				continue;
-			}
-
-			if (y == _size - 2)
-			{
-				_tile[y][x + 1] = Empty;
-				continue;
-			}
-
-			if (x == _size - 2)
-			{
-				_tile[y + 1][x] = Empty;
-				continue;
-			}
-
-			//srand(time(NULL) + x);
-			//randNum = rand() % 2;
-			randNum = dis(gen);
-			if (randNum == 0)
-			{
-				_tile[y][x + 1] = Empty;
-			}
-			else
-			{
-				_tile[y + 1][x] = Empty;
-			}
-		}
-	}
-	_tile[1][1] = Player;
-	playerPosX = playerPosY = 1;
-	_tile[_size - 2][_size - 1] = Goal;
-}
-
-void MiroInitAlgorithm::Board::RenderBoard()
-{
-	for (int y = 0; y < _size; y++)
-	{
-		for (int x = 0; x < _size; x++)
-		{
-			switch (_tile[y][x])
+			switch (tile[y][x])
 			{
 			case Wall:
 				std::cout << "бс";
@@ -112,7 +33,7 @@ void MiroInitAlgorithm::Board::RenderBoard()
 	}
 }
 
-void MiroInitAlgorithm::Board::PlayerMoveInput(char input)
+void Board::PlayerMoveInput(char input)
 {
 	int nextPos;
 	bool isGameEnd = false;
@@ -144,26 +65,27 @@ void MiroInitAlgorithm::Board::PlayerMoveInput(char input)
 	_isGoal = isGameEnd;
 }
 
-bool MiroInitAlgorithm::Board::PlayerMove(int x, int y)
+bool Board::PlayerMove(int x, int y)
 {
-	if (_tile[y][x] == Wall)
+	char** tile = GetMaze().GetTile();
+	if (tile[y][x] == Wall)
 	{
 		return false;
 	}
 	
-	if (_tile[y][x] == Goal)
+	if (tile[y][x] == Goal)
 	{
 		std::cout << "You Win!" << std::endl;
 		return true;
 	}
 
-	std::swap(_tile[playerPosY][playerPosX], _tile[y][x]);
+	std::swap(tile[playerPosY][playerPosX], tile[y][x]);
 	playerPosX = x;
 	playerPosY = y;
 	return false;
 }
 
-bool MiroInitAlgorithm::Board::InputIdentify(char input)
+bool Board::InputIdentify(char input)
 {
 	switch (input)
 	{
@@ -175,4 +97,14 @@ bool MiroInitAlgorithm::Board::InputIdentify(char input)
 		break;
 	}
 	return true;
+}
+
+Maze Board::GetMaze()
+{
+	return _maze;
+}
+
+bool Board::IsGoal()
+{
+	return false;
 }

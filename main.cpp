@@ -2,10 +2,13 @@
 #include "Board.h"
 #include "Timer.h"
 
+using namespace std;
+
+void PrtMazeText();
+
 int main()
 {
-	using namespace std;
-	using namespace MiroInitAlgorithm;
+	
 	
 	int mapSize(31);
 	
@@ -13,25 +16,16 @@ int main()
 	
 	Board board;
 	Timer timer;
-	board.Initialize(mapSize);
-	board.GenerateByBinaryTree();
-
-	int oldMode = _setmode(_fileno(stdout), _O_U8TEXT);
-
-
-	wcout << L"███╗   ███╗ █████╗ ███████╗███████╗     ██████╗  █████╗ ███╗   ███╗███████╗" << endl;
-	wcout << L"████╗ ████║██╔══██╗╚══███╔╝██╔════╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝" << endl;
-	wcout << L"██╔████╔██║███████║  ███╔╝ █████╗      ██║  ███╗███████║██╔████╔██║█████╗  " << endl;
-	wcout << L"██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝      ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  " << endl;
-	wcout << L"██║ ╚═╝ ██║██║  ██║███████╗███████╗    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗" << endl;
-	wcout << L"╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝" << endl;
-
-	oldMode = _setmode(_fileno(stdout), oldMode);
+	
+	board.GetMaze().Initialize(mapSize);
+	board.GetMaze().GenerateByBinaryTree();
+	 
+	PrtMazeText();
 
 	system("pause");
 	system("cls");
 	timer.Start();
-	while (!board._isGoal)
+	while (/*!board._isGoal*/true)
 	{
 		gotoxy(0, 0);
 		board.RenderBoard();
@@ -46,4 +40,16 @@ int main()
 	cout << "게임 클리어" << endl;
 	cout << "걸린 시간 : " << timer.GetInterval() << "초" << endl;
 	return 0;
+}
+
+void PrtMazeText()
+{
+	int oldMode = _setmode(_fileno(stdout), _O_U8TEXT);
+	wcout << L"███╗   ███╗ █████╗ ███████╗███████╗     ██████╗  █████╗ ███╗   ███╗███████╗" << endl;
+	wcout << L"████╗ ████║██╔══██╗╚══███╔╝██╔════╝    ██╔════╝ ██╔══██╗████╗ ████║██╔════╝" << endl;
+	wcout << L"██╔████╔██║███████║  ███╔╝ █████╗      ██║  ███╗███████║██╔████╔██║█████╗  " << endl;
+	wcout << L"██║╚██╔╝██║██╔══██║ ███╔╝  ██╔══╝      ██║   ██║██╔══██║██║╚██╔╝██║██╔══╝  " << endl;
+	wcout << L"██║ ╚═╝ ██║██║  ██║███████╗███████╗    ╚██████╔╝██║  ██║██║ ╚═╝ ██║███████╗" << endl;
+	wcout << L"╚═╝     ╚═╝╚═╝  ╚═╝╚══════╝╚══════╝     ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚══════╝" << endl;
+	oldMode = _setmode(_fileno(stdout), oldMode);
 }

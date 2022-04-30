@@ -1,35 +1,25 @@
 #pragma once
 #include <random>
 #include <iostream>
+#include "Maze.h"
 
-namespace MiroInitAlgorithm
+class Board
 {
-	enum TileType
-	{
-		Empty,
-		Wall,
-		Player,
-		Goal
-	};
+private:
+	Maze _maze;
+	int playerPosX, playerPosY;
+	bool _isGoal = false;
 
-	class Board
-	{
-	public:
-		char** _tile;
-		int _size;
-		int playerPosX, playerPosY;
-		bool _isGoal = false;
+public:
+	void RenderBoard();
 
-		void Initialize(int size);
+	void PlayerMoveInput(char input);
 
-		void GenerateByBinaryTree();
-		
-		void RenderBoard();
+	bool PlayerMove(int x, int y);
 
-		void PlayerMoveInput(char input);
+	bool InputIdentify(char input);
 
-		bool PlayerMove(int x, int y);
+	Maze GetMaze();
 
-		bool InputIdentify(char input);
-	};
-}
+	bool IsGoal();
+};
