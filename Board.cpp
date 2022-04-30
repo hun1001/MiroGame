@@ -99,4 +99,3 @@ TileState Board::CheckNextBlock(int x, int y)
 		break;
 	}
 }
-
