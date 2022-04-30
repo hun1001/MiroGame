@@ -11,6 +11,7 @@ private:
 	Maze* _maze;
 	Player* _player;
 	int* _size;
+	bool _isGameEnd;
 public:
 	void RenderBoard();
 	void ResetBoard();
@@ -18,5 +19,7 @@ public:
 
 	void MovePlayer(Direction dir);
 	TileState CheckNextBlock(int x, int y);
+
+	bool GetIsGameEnd();
 };
 

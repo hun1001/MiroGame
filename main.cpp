@@ -9,13 +9,17 @@ int main()
 	fullscreen();
 	hideCursor();
 
-	while (true)
+	board.RenderBoard();
+	while (!board.GetIsGameEnd())
 	{
 		gotoxy(0, 0);
-		board.RenderBoard();
 		buffer = _getch();
 		board.InputCommend(buffer);
+		board.RenderBoard();
 	}
+	
+	system("cls");
+	cout << "°ñÀÎ";
 	
 	return 0;
 }

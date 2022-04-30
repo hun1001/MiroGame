@@ -5,6 +5,7 @@ Board::Board(int boardSize)
 {
 	_maze = new Maze(boardSize);
 	_size = _maze->GetSize();
+	_isGameEnd = false;
 	ResetBoard();
 }
 
@@ -93,9 +94,15 @@ TileState Board::CheckNextBlock(int x, int y)
 	case Wall:
 		return TileState::CANNOTMOVE;
 	case Goal:
+		_isGameEnd = true;
 		return TileState::CANMOVE;
 		break;
 	default:
 		break;
 	}
+}
+
+bool Board::GetIsGameEnd()
+{
+	return _isGameEnd;
 }
