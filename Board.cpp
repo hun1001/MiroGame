@@ -93,6 +93,7 @@ TileState Board::CheckNextBlock(int x, int y)
 		break;
 	case Wall:
 		return TileState::CANNOTMOVE;
+		break;
 	case Goal:
 		_isGameEnd = true;
 		return TileState::CANMOVE;
