@@ -98,6 +98,7 @@ TileState Board::CheckNextBlock(int x, int y)
 		return TileState::CANMOVE;
 		break;
 	default:
+		perror("Block not found");
 		break;
 	}
 }
