@@ -2,6 +2,7 @@
 #include "Board.h"
 #include "Timer.h"
 
+
 int main()
 {
 	Board board(25);

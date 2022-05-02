@@ -44,3 +44,8 @@ void Player::Back()
 {
 	swap(_pos, _beforePos);
 }
+
+void Player::PrtPlayer()
+{
+
+}

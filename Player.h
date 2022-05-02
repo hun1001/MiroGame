@@ -14,5 +14,6 @@ public:
 	void SetPos(POINT pos);
 	void Move(Direction dir);
 	void Back();
+	void PrtPlayer();
 };
 
