@@ -11,7 +11,7 @@ Board::Board(int boardSize)
 
 void Board::RenderBoard()
 {
-	char** tile = _maze->GetTile();
+	const char** const tile = _maze->GetTile();
 	for (int y = 0; y < *_size; y++)
 	{
 		for (int x = 0; x < *_size; x++)
