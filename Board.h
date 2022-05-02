@@ -2,6 +2,7 @@
 #include "Maze.h"
 #include "Player.h"
 #include "TileState.h"
+#include "Key.h"
 
 class Board
 {

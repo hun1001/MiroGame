@@ -36,6 +36,20 @@ POINT intToPoint(int x, int y)
 	return POINT{ x, y };
 }
 
+bool IsPOINTEqual(const POINT p1, const POINT p2)
+{
+	if (p1.x == p2.x && p1.y == p2.y)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+	perror("Have problem");
+	return false;
+}
+
 int wherex(void)
 {
 	CONSOLE_SCREEN_BUFFER_INFO info;

@@ -1,5 +1,4 @@
 #include "Board.h"
-#include "Key.h"
 
 Board::Board(int boardSize)
 {
@@ -17,7 +16,7 @@ void Board::RenderBoard()
 		for (int x = 0; x < *_size; x++)
 		{
 			// 여기 연산자 오버로딩으로 POINT == POINT 가능하게 만들 수는 있는데 그럴려면 POINT도 새로 만들어야 되서 걍 이렇게 함
-			if (_player->GetPos().x == x && _player->GetPos().y == y)
+			if (IsPOINTEqual(_player->GetPos(), intToPoint(x,y)))
 			{
 				cout << "♥";
 			}
