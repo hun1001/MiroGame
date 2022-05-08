@@ -4,6 +4,7 @@ Player::Player(POINT pos)
 {
 	_beforePos = pos;
 	_pos = pos;
+	SetIcon("¢½");
 }
 
 POINT Player::GetPos()
@@ -15,6 +16,11 @@ void Player::SetPos(POINT pos)
 {
 	_beforePos = _pos;
 	_pos = pos;
+}
+
+void Player::SetIcon(string icon)
+{
+	_icon = icon;
 }
 
 void Player::Move(Direction dir)
@@ -47,5 +53,5 @@ void Player::Back()
 
 void Player::PrtPlayer()
 {
-
+	cout << _icon;
 }

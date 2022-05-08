@@ -3,5 +3,6 @@ enum TileType
 {
 	Empty,
 	Wall,
-	Goal
+	Goal,
+	Bomb
 };

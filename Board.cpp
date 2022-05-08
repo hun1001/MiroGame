@@ -10,7 +10,8 @@ Board::Board(int boardSize)
 
 void Board::RenderBoard()
 {
-	const char** const tile = _maze->GetTile();
+	// const char** const tile = _maze->GetTile(); 이거 왜 안됨?
+	char** const tile = _maze->GetTile();
 	for (int y = 0; y < *_size; y++)
 	{
 		for (int x = 0; x < *_size; x++)
@@ -18,7 +19,7 @@ void Board::RenderBoard()
 			// 여기 연산자 오버로딩으로 POINT == POINT 가능하게 만들 수는 있는데 그럴려면 POINT도 새로 만들어야 되서 걍 이렇게 함
 			if (IsPOINTEqual(_player->GetPos(), intToPoint(x,y)))
 			{
-				cout << "♥";
+				_player->PrtPlayer();
 			}
 			else 
 			{

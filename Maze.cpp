@@ -46,7 +46,6 @@ void Maze::GenerateByBinaryTree()
 			}
 		}
 	}
-
 	
 	int randNum;
 

@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
+    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="console.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -28,8 +30,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
+    <ClInclude Include="Bomb.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="Player.h" />

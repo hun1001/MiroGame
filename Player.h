@@ -9,9 +9,11 @@ public:
 private:
 	POINT _pos;
 	POINT _beforePos;
+	string _icon;
 public:
 	POINT GetPos();
 	void SetPos(POINT pos);
+	void SetIcon(string icon);
 	void Move(Direction dir);
 	void Back();
 	void PrtPlayer();
