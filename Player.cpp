@@ -4,7 +4,7 @@ Player::Player(POINT pos)
 {
 	_beforePos = pos;
 	_pos = pos;
-	SetIcon("¢½");
+	SetIcon("¢¾");
 }
 
 POINT Player::GetPos()

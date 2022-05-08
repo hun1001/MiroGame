@@ -20,17 +20,16 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
-    <ClCompile Include="Bomb.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
-    <ClInclude Include="Bomb.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Item.h" />
@@ -40,6 +39,7 @@
     <ClInclude Include="TileState.h" />
     <ClInclude Include="TileType.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

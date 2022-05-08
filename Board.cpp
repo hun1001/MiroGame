@@ -3,6 +3,7 @@
 Board::Board(int boardSize)
 {
 	_maze = new Maze(boardSize);
+	_utility = new Utility();
 	_size = _maze->GetSize();
 	_isGameEnd = false;
 	ResetBoard();
@@ -52,11 +53,12 @@ void Board::ResetBoard()
 
 void Board::InputCommend(char input)
 {
+	_utility->LetterIntegrate(input);
 	switch (input)
 	{
 	case ESC:
 		// 게임 종료 처리 함수 실행 지금은 exit로
-		exit(0);
+		ExitGame();
 		break;
 	case UpArrow:
 		MovePlayer(Direction::UP);
@@ -73,6 +75,13 @@ void Board::InputCommend(char input)
 	default:
 		break;
 	}
+}
+
+void Board::ExitGame()
+{
+	system("cls");
+	_isGameEnd = true;
+	exit(0);
 }
 
 void Board::MovePlayer(Direction dir)

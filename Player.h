@@ -18,4 +18,3 @@ public:
 	void Back();
 	void PrtPlayer();
 };
-
