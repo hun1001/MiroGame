@@ -3,7 +3,6 @@
 Board::Board(int boardSize)
 {
 	_maze = new Maze(boardSize);
-	_utility = new Utility();
 	_size = _maze->GetSize();
 	_isGameEnd = false;
 	ResetBoard();
@@ -53,7 +52,7 @@ void Board::ResetBoard()
 
 void Board::InputCommend(char input)
 {
-	_utility->LetterIntegrate(input);
+	LetterIntegrate(input);
 	switch (input)
 	{
 	case ESC:

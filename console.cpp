@@ -62,6 +62,15 @@ void fullscreen()
 	SetConsoleDisplayMode(GetStdHandle(STD_OUTPUT_HANDLE), CONSOLE_FULLSCREEN_MODE, 0);
 }
 
+void LetterIntegrate(char& letter)
+{
+	if (letter >= 'a' && letter <= 'z')
+	{
+		letter = letter - 32;
+	}
+}
+
+
 /*
 	HWND console = GetConsoleWindow();
 	SetWindowLong(console, GWL_STYLE, GetWinsowLong(console, GWL_STYLE) & WS_MAXMIZEBOX & WS_SIZEBOX)

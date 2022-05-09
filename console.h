@@ -21,3 +21,5 @@ int GetRandom(int min, int max);
 POINT intToPoint(int x, int y);
 
 bool IsPOINTEqual(const POINT p1, const POINT p2);
+
+void LetterIntegrate(char& letter);

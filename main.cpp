@@ -35,6 +35,7 @@ int main()
 	{
 		gotoxy(0, 0);
 		buffer = _getch();
+		
 		board.InputCommend(buffer);
 		board.RenderBoard();
 	}
