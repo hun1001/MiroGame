@@ -11,6 +11,7 @@ private:
 	POINT _beforePos;
 	Direction _dir;
 	string _icon;
+	
 public:
 	POINT GetPos();
 	void SetPos(POINT pos);
@@ -19,4 +20,6 @@ public:
 	void Move(Direction dir);
 	void Back();
 	void PrtPlayer();
+
+	Direction* GetDir();
 };

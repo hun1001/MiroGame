@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "TileState.h"
 #include "Key.h"
+#include "Gun.h"
 
 class Board
 {
@@ -11,6 +12,8 @@ public:
 private:
 	Maze* _maze;
 	Player* _player;
+	Gun* _gun;
+	
 	int* _size;
 	bool _isGameEnd;
 public:

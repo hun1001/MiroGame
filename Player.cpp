@@ -82,3 +82,8 @@ void Player::PrtPlayer()
 {
 	cout << _icon;
 }
+
+Direction* Player::GetDir()
+{
+	return &_dir;
+}

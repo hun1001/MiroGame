@@ -6,6 +6,7 @@ Board::Board(int boardSize)
 	_size = _maze->GetSize();
 	_isGameEnd = false;
 	ResetBoard();
+	_gun = new Gun(_maze->GetTile(), &(_player->GetPos()), _player->GetDir());
 }
 
 void Board::RenderBoard()
@@ -56,7 +57,6 @@ void Board::InputCommend(char input)
 	switch (input)
 	{
 	case ESC:
-		// 게임 종료 처리 함수 실행 지금은 exit로
 		ExitGame();
 		break;
 	case UpArrow:
@@ -70,6 +70,9 @@ void Board::InputCommend(char input)
 		break;
 	case RightArrow:
 		MovePlayer(Direction::RIGHT);
+		break;
+	case A:
+		_gun->Fire();
 		break;
 	default:
 		break;

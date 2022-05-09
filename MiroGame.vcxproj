@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="console.cpp" />
+    <ClCompile Include="Gun.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -30,6 +31,7 @@
     <ClInclude Include="Board.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Direction.h" />
+    <ClInclude Include="Gun.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="Key.h" />
     <ClInclude Include="Maze.h" />
