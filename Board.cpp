@@ -6,7 +6,7 @@ Board::Board(int boardSize)
 	_size = _maze->GetSize();
 	_isGameEnd = false;
 	ResetBoard();
-	_gun = new Gun(_maze->GetTile(), &(_player->GetPos()), _player->GetDir());
+	_gun = new Gun(_maze->GetTile(), _player->GetPosp(), _player->GetDir());
 }
 
 void Board::RenderBoard()
@@ -17,7 +17,6 @@ void Board::RenderBoard()
 	{
 		for (int x = 0; x < *_size; x++)
 		{
-			// 여기 연산자 오버로딩으로 POINT == POINT 가능하게 만들 수는 있는데 그럴려면 POINT도 새로 만들어야 되서 걍 이렇게 함
 			if (IsPOINTEqual(_player->GetPos(), intToPoint(x,y)))
 			{
 				_player->PrtPlayer();
@@ -111,6 +110,7 @@ TileState Board::CheckNextBlock(int x, int y)
 		break;
 	default:
 		perror("Block not found");
+		return TileState::CANNOTMOVE;
 		break;
 	}
 }

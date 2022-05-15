@@ -1,6 +1,7 @@
 #pragma once
 #include "Direction.h"
 #include "console.h"
+#include "TileType.h"
 
 class Gun
 {
@@ -9,7 +10,7 @@ public:
 	~Gun();
 	
 private:
-	const char** const _tile;
+	char** _tile;
 	const POINT* const _pos;
 	const Direction* const _dir;
 public:

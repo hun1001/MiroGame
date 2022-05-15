@@ -25,6 +25,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Maze.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PowderKeg.cpp" />
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -36,6 +37,7 @@
     <ClInclude Include="Key.h" />
     <ClInclude Include="Maze.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PowderKeg.h" />
     <ClInclude Include="TileState.h" />
     <ClInclude Include="TileType.h" />
     <ClInclude Include="Timer.h" />

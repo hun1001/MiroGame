@@ -82,6 +82,8 @@ void Maze::GenerateByBinaryTree()
 		}
 	}
 
+	_tile[_size - 1][_size - 1] = Wall;
+
 	SetPos();
 }
 

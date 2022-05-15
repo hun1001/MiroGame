@@ -14,6 +14,7 @@ private:
 	
 public:
 	POINT GetPos();
+	POINT* GetPosp();
 	void SetPos(POINT pos);
 	void SetIcon(string icon);
 	void SetDir(Direction dir);

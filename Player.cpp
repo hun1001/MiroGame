@@ -12,6 +12,11 @@ POINT Player::GetPos()
 	return _pos;
 }
 
+POINT* Player::GetPosp()
+{
+	return &_pos;
+}
+
 void Player::SetPos(POINT pos)
 {
 	_beforePos = _pos;
